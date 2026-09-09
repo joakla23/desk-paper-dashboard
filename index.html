@@ -1,0 +1,586 @@
+<!-- PUBLISH: paper levels only. No holdings/capital. Source private; Pages URL public. -->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="dark"/>
+<title>Desk · 2026-09-08</title>
+<style>
+:root {
+  --bg:#0b0d10; --card:#151a21; --border:#2a3340; --text:#e8eef6; --muted:#8b98a8;
+  --up:#1f6f4a; --down:#8b2e2e; --warn:#8a6d1d; --ok:#1a4d3a; --stale:#5c2a2a;
+  --pill:#243041; --flag:#3a2a12; --flagt:#f0c674; --accent:#6cb6ff;
+}
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px; line-height:1.35; }
+main { max-width:640px; margin:0 auto; padding:14px 14px 48px; }
+h1 { font-size:1.25rem; margin:0 0 6px; }
+h2 { font-size:1.05rem; margin:28px 0 10px; letter-spacing:.02em; text-transform:uppercase; color:var(--muted); }
+h3 { font-size:1rem; margin:16px 0 8px; }
+.updated { font-size:1.05rem; font-weight:700; color:#fff; background:#1e2936;
+  border:1px solid var(--border); border-radius:12px; padding:12px 14px; margin:10px 0 14px; }
+.updated .sub { display:block; font-weight:500; color:var(--muted); font-size:.9rem; margin-top:4px; }
+.banner { border-radius:12px; padding:12px 14px; margin:0 0 12px; font-weight:600; }
+.banner.ok { background:var(--ok); }
+.banner.stale { background:var(--stale); }
+.summary { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:8px; }
+.summary .box { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px; }
+.lbl { font-size:.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+.val { font-size:1.05rem; font-weight:600; }
+.pct { font-weight:600; }
+.muted { color:var(--muted); font-size:.9rem; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:16px;
+  padding:14px; margin:0 0 12px; border-left:5px solid var(--border); }
+.card.tone-up { border-left-color:#2ecc71; }
+.card.tone-down { border-left-color:#e74c3c; }
+.card.tone-warn { border-left-color:#f1c40f; }
+.card.tone-neutral { border-left-color:#7f8c8d; }
+.card.compact { padding:12px; }
+.card header { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:10px; }
+.ticker { font-size:1.35rem; font-weight:800; letter-spacing:.02em; }
+.meta { display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end; }
+.pill { background:var(--pill); color:var(--text); font-size:.75rem; padding:4px 8px;
+  border-radius:999px; font-weight:600; }
+.flag { display:inline-block; background:var(--flag); color:var(--flagt); font-size:.72rem;
+  font-weight:700; padding:4px 8px; border-radius:8px; margin-right:6px; margin-top:8px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10px 12px; margin:8px 0; }
+.lvl { margin-top:10px; padding-top:8px; border-top:1px solid var(--border); }
+.lvl .sub { color:var(--muted); font-size:.85rem; margin-top:2px; }
+footer { margin-top:8px; display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+  justify-content:space-between; color:var(--muted); font-size:.85rem; }
+.sortbar { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 12px; align-items:center; }
+.sortbar button { appearance:none; border:1px solid var(--border); background:var(--pill);
+  color:var(--text); font-size:1rem; font-weight:600; padding:12px 14px; border-radius:12px;
+  min-height:48px; cursor:pointer; }
+.sortbar button.active { outline:2px solid var(--accent); }
+.sort-label { width:100%; color:var(--muted); font-size:.9rem; margin-top:4px; }
+details.rejects { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:4px 14px 14px; }
+details.rejects summary { font-size:1.05rem; font-weight:700; padding:14px 0; cursor:pointer; list-style:none; }
+details.rejects summary::-webkit-details-marker { display:none; }
+table { width:100%; border-collapse:collapse; font-size:.9rem; }
+th,td { text-align:left; padding:10px 6px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { color:var(--muted); font-weight:600; font-size:.75rem; text-transform:uppercase; }
+.footnote { margin-top:28px; color:var(--muted); font-size:.8rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Desk</h1>
+  <div class="updated">
+    Senast uppdaterad: 2026-09-09 08:27:01 CEST
+    <span class="sub">Scan skriven: 2026-09-09T07:33:32.719021+02:00 · källa scan-2026-09-09-0700</span>
+  </div>
+  <div class='banner ok'>OK · expected_session 2026-09-08 · bar 2026-09-08</div>
+
+  <h2>1 · Dagens läge</h2>
+  <div class="summary">
+    <div class="box"><div class="lbl">Senaste bar</div><div class="val">2026-09-08</div></div>
+    <div class="box"><div class="lbl">Status</div><div class="val">OK</div></div>
+    <div class="box"><div class="lbl">Öppna (AKTIVERAD)</div><div class="val">5</div></div>
+    <div class="box"><div class="lbl">Väntar settle</div><div class="val">6</div></div>
+  </div>
+  <p class="muted">LIMITED: filings_junk=LIMITED_UNCHECKED · minute_bars=LIMITED</p>
+  <p class="muted">SPY {&#x27;has_bar&#x27;: True, &#x27;close&#x27;: 765.96, &#x27;prior_close&#x27;: 770.19, &#x27;open&#x27;: 769.07, &#x27;high&#x27;: 769.7, &#x27;low&#x27;: 765.14, &#x27;volume&#x27;: 44746095.499117} · AAPL {&#x27;has_bar&#x27;: True, &#x27;close&#x27;: 316.22, &#x27;prior_close&#x27;: 319.97, &#x27;open&#x27;: 317.1, &#x27;high&#x27;: 320.7, &#x27;low&#x27;: 314.9, &#x27;volume&#x27;: 35477090.54685}</p>
+
+  <h2>2 · Aktiva positioner</h2>
+  
+<article class="card tone-up">
+  <header>
+    <div class="ticker">EOSE</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">entry B</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Entry</div><div class="val">$3.767</div></div>
+    <div><div class="lbl">Nu</div><div class="val">$4.300 <span class="pct">+14.16%</span></div></div>
+    <div><div class="lbl">Till stop</div><div class="val">-23.81%</div></div>
+    <div><div class="lbl">Till target</div><div class="val">+16.14%</div></div>
+    <div><div class="lbl">MFE</div><div class="val">+21.85%</div></div>
+    <div><div class="lbl">MAE</div><div class="val">-8.94%</div></div>
+  </div>
+  <footer><span>dag 2 / 30</span><span class="muted">2026-09-08</span></footer>
+</article>
+
+<article class="card tone-warn">
+  <header>
+    <div class="ticker">DELL</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">entry B</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Entry</div><div class="val">$505.82</div></div>
+    <div><div class="lbl">Nu</div><div class="val">$533.88 <span class="pct">+5.55%</span></div></div>
+    <div><div class="lbl">Till stop</div><div class="val">-14.06%</div></div>
+    <div><div class="lbl">Till target</div><div class="val">+16.75%</div></div>
+    <div><div class="lbl">MFE</div><div class="val">+6.45%</div></div>
+    <div><div class="lbl">MAE</div><div class="val">-5.44%</div></div>
+  </div>
+  <footer><span>dag 3 / 25</span><span class="muted">2026-09-08</span></footer>
+</article>
+
+<article class="card tone-warn">
+  <header>
+    <div class="ticker">MRX</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">entry B</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Entry</div><div class="val">$76.58</div></div>
+    <div><div class="lbl">Nu</div><div class="val">$76.71 <span class="pct">+0.17%</span></div></div>
+    <div><div class="lbl">Till stop</div><div class="val">-6.59%</div></div>
+    <div><div class="lbl">Till target</div><div class="val">+15.87%</div></div>
+    <div><div class="lbl">MFE</div><div class="val">+3.30%</div></div>
+    <div><div class="lbl">MAE</div><div class="val">-2.06%</div></div>
+  </div>
+  <footer><span>dag 2 / 17</span><span class="muted">2026-09-08</span></footer>
+</article>
+
+<article class="card tone-warn">
+  <header>
+    <div class="ticker">HPE</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">entry B</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Entry</div><div class="val">$55.67</div></div>
+    <div><div class="lbl">Nu</div><div class="val">$56.03 <span class="pct">+0.65%</span></div></div>
+    <div><div class="lbl">Till stop</div><div class="val">-9.09%</div></div>
+    <div><div class="lbl">Till target</div><div class="val">+20.45%</div></div>
+    <div><div class="lbl">MFE</div><div class="val">—</div></div>
+    <div><div class="lbl">MAE</div><div class="val">—</div></div>
+  </div>
+  <footer><span>dag 0 / 21</span><span class="muted">2026-09-08</span></footer>
+</article>
+
+<article class="card tone-warn">
+  <header>
+    <div class="ticker">GOLD</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">entry B</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Entry</div><div class="val">$46.89</div></div>
+    <div><div class="lbl">Nu</div><div class="val">$47.47 <span class="pct">+1.23%</span></div></div>
+    <div><div class="lbl">Till stop</div><div class="val">-8.76%</div></div>
+    <div><div class="lbl">Till target</div><div class="val">+17.64%</div></div>
+    <div><div class="lbl">MFE</div><div class="val">—</div></div>
+    <div><div class="lbl">MAE</div><div class="val">—</div></div>
+  </div>
+  <footer><span>dag 0 / 19</span><span class="muted">2026-09-08</span></footer>
+</article>
+
+  <h2>3 · Väntar / Pending</h2>
+  
+<article class="card">
+  <header>
+    <div class="ticker">DK</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">VÄNTAR</span><span class="pill">prefer B</span></div>
+  </header>
+  <div class="muted">Settle: 2026-09-09 </div>
+  
+<div class="lvl">
+  <div class="lbl">A · pullback</div>
+  <div class="val">entry $74.91 · stop $68.58 · mål $90.74</div>
+  <div class="sub">stop 8.45% · target 21.13% · R/R 2.5</div>
+  <div class='sub'>gap-band $74.16–$75.66</div>
+</div>
+  
+<div class="lvl">
+  <div class="lbl">B · breakout</div>
+  <div class="val">entry $78.19 · stop $71.85 · mål $94.01</div>
+  <div class="sub">stop 8.10% · target 20.25% · R/R 2.5</div>
+  
+</div>
+  <footer></footer>
+</article>
+
+<article class="card">
+  <header>
+    <div class="ticker">ENOV</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">VÄNTAR</span><span class="pill">prefer B</span></div>
+  </header>
+  <div class="muted">Settle: 2026-09-09 </div>
+  
+<div class="lvl">
+  <div class="lbl">A · pullback</div>
+  <div class="val">entry $19.27 · stop $17.06 · mål $24.80</div>
+  <div class="sub">stop 11.48% · target 28.70% · R/R 2.5</div>
+  <div class='sub'>gap-band $19.08–$19.46</div>
+</div>
+  
+<div class="lvl">
+  <div class="lbl">B · breakout</div>
+  <div class="val">entry $20.58 · stop $18.37 · mål $26.12</div>
+  <div class="sub">stop 10.75% · target 26.87% · R/R 2.5</div>
+  
+</div>
+  <footer></footer>
+</article>
+
+<article class="card">
+  <header>
+    <div class="ticker">QBTS</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">VÄNTAR</span><span class="pill">prefer B</span></div>
+  </header>
+  <div class="muted">Settle: 2026-09-09 </div>
+  
+<div class="lvl">
+  <div class="lbl">A · pullback</div>
+  <div class="val">entry $17.49 · stop $15.64 · mål $22.12</div>
+  <div class="sub">stop 10.57% · target 26.43% · R/R 2.5</div>
+  <div class='sub'>gap-band $17.32–$17.67</div>
+</div>
+  
+<div class="lvl">
+  <div class="lbl">B · breakout</div>
+  <div class="val">entry $18.79 · stop $16.94 · mål $23.41</div>
+  <div class="sub">stop 9.84% · target 24.61% · R/R 2.5</div>
+  
+</div>
+  <footer></footer>
+</article>
+
+<article class="card">
+  <header>
+    <div class="ticker">ROIV</div>
+    <div class="meta"><span class="pill">WILD</span><span class="pill">VÄNTAR</span><span class="pill">prefer B</span></div>
+  </header>
+  <div class="muted">Settle: 2026-09-09 </div>
+  
+<div class="lvl">
+  <div class="lbl">A · pullback</div>
+  <div class="val">entry $40.22 · stop $37.66 · mål $46.60</div>
+  <div class="sub">stop 6.35% · target 15.88% · R/R 2.5</div>
+  <div class='sub'>gap-band $39.82–$40.62</div>
+</div>
+  
+<div class="lvl">
+  <div class="lbl">B · breakout</div>
+  <div class="val">entry $42.93 · stop $40.37 · mål $49.31</div>
+  <div class="sub">stop 5.95% · target 14.88% · R/R 2.5</div>
+  
+</div>
+  <footer><span class="flag">VOL_SPIKE_STOP_TIGHT</span><span class="flag">stop-gap</span></footer>
+</article>
+
+<article class="card">
+  <header>
+    <div class="ticker">TYRA</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">PENDING</span><span class="pill">prefer B</span></div>
+  </header>
+  <div class="muted">Settle: 2026-09-09 sess 2</div>
+  
+<div class="lvl">
+  <div class="lbl">A · pullback</div>
+  <div class="val">entry $25.77 · stop $23.37 · mål $31.78</div>
+  <div class="sub">stop — · target — · R/R 2.5</div>
+  <div class='sub'>gap-band $25.51–$26.03</div>
+</div>
+  
+<div class="lvl">
+  <div class="lbl">B · breakout</div>
+  <div class="val">entry $29.96 · stop $27.56 · mål $35.97</div>
+  <div class="sub">stop — · target — · R/R 2.5</div>
+  
+</div>
+  <footer></footer>
+</article>
+
+<article class="card">
+  <header>
+    <div class="ticker">WWW</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">PENDING</span><span class="pill">prefer B</span></div>
+  </header>
+  <div class="muted">Settle: 2026-09-09 sess 2</div>
+  
+<div class="lvl">
+  <div class="lbl">A · pullback</div>
+  <div class="val">entry $19.83 · stop $18.52 · mål $23.11</div>
+  <div class="sub">stop — · target — · R/R 2.5</div>
+  <div class='sub'>gap-band $19.63–$20.03</div>
+</div>
+  
+<div class="lvl">
+  <div class="lbl">B · breakout</div>
+  <div class="val">entry $21.11 · stop $19.80 · mål $24.39</div>
+  <div class="sub">stop — · target — · R/R 2.5</div>
+  
+</div>
+  <footer></footer>
+</article>
+
+  <h2>4 · Kvällens nya setups</h2>
+  <div class="sortbar" id="sortbar">
+    <button type="button" data-sort="distance" class="active">Avstånd till entry</button>
+    <button type="button" data-sort="rr" class="">R/R</button>
+    <div class="sort-label" id="sortLabel">Sortering: avstånd close → preferred entry (närmast först) — beskrivande, inte kvalitetsranking</div>
+  </div>
+  <p class="muted">Beskrivande sortering bara — ingen kvalitetsranking, ingen sannolikhet, ingen prognos.</p>
+  <h3>SAFE</h3>
+  <div id="safeSetups">
+<article class="card setup" data-rr="2.5" data-dist="3.021782118499823" data-ticker="ENOV">
+  <header>
+    <div class="ticker">ENOV</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">prefer B</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Close</div><div class="val">$19.98 <span class="pct">+7.65%</span></div></div>
+    <div><div class="lbl">Avstånd</div><div class="val">+3.02% till B entry</div></div>
+    <div><div class="lbl">ATR</div><div class="val">$1.475 (7.38%)</div></div>
+    <div><div class="lbl">Stretch</div><div class="val">-2.70 ATR</div></div>
+    <div><div class="lbl">R/R</div><div class="val">2.50</div></div>
+    <div><div class="lbl">Friktion</div><div class="val">0.50% RT</div></div>
+    <div><div class="lbl">Earnings</div><div class="val">UNCHECKED</div></div>
+    <div><div class="lbl">Vol×</div><div class="val">2.93×</div></div>
+  </div>
+  
+<div class="lvl">
+  <div class="lbl">A · pullback</div>
+  <div class="val">entry $19.27 · stop $17.06 · mål $24.80</div>
+  <div class="sub">stop 11.48% · target 28.70% · R/R 2.5</div>
+  <div class='sub'>gap-band $19.08–$19.46</div>
+</div>
+  
+<div class="lvl">
+  <div class="lbl">B · breakout</div>
+  <div class="val">entry $20.58 · stop $18.37 · mål $26.12</div>
+  <div class="sub">stop 10.75% · target 26.87% · R/R 2.5</div>
+  
+</div>
+  <footer></footer>
+</article>
+
+<article class="card setup" data-rr="2.5" data-dist="3.3239818346936305" data-ticker="DK">
+  <header>
+    <div class="ticker">DK</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">prefer B</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Close</div><div class="val">$75.67 <span class="pct">+5.30%</span></div></div>
+    <div><div class="lbl">Avstånd</div><div class="val">+3.32% till B entry</div></div>
+    <div><div class="lbl">ATR</div><div class="val">$4.221 (5.58%)</div></div>
+    <div><div class="lbl">Stretch</div><div class="val">+1.46 ATR</div></div>
+    <div><div class="lbl">R/R</div><div class="val">2.50</div></div>
+    <div><div class="lbl">Friktion</div><div class="val">0.50% RT</div></div>
+    <div><div class="lbl">Earnings</div><div class="val">UNCHECKED</div></div>
+    <div><div class="lbl">Vol×</div><div class="val">2.09×</div></div>
+  </div>
+  
+<div class="lvl">
+  <div class="lbl">A · pullback</div>
+  <div class="val">entry $74.91 · stop $68.58 · mål $90.74</div>
+  <div class="sub">stop 8.45% · target 21.13% · R/R 2.5</div>
+  <div class='sub'>gap-band $74.16–$75.66</div>
+</div>
+  
+<div class="lvl">
+  <div class="lbl">B · breakout</div>
+  <div class="val">entry $78.19 · stop $71.85 · mål $94.01</div>
+  <div class="sub">stop 8.10% · target 20.25% · R/R 2.5</div>
+  
+</div>
+  <footer></footer>
+</article>
+
+<article class="card setup" data-rr="2.5" data-dist="6.328305809329741" data-ticker="QBTS">
+  <header>
+    <div class="ticker">QBTS</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">prefer B</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Close</div><div class="val">$17.67 <span class="pct">+6.57%</span></div></div>
+    <div><div class="lbl">Avstånd</div><div class="val">+6.33% till B entry</div></div>
+    <div><div class="lbl">ATR</div><div class="val">$1.233 (6.98%)</div></div>
+    <div><div class="lbl">Stretch</div><div class="val">-0.82 ATR</div></div>
+    <div><div class="lbl">R/R</div><div class="val">2.50</div></div>
+    <div><div class="lbl">Friktion</div><div class="val">0.50% RT</div></div>
+    <div><div class="lbl">Earnings</div><div class="val">UNCHECKED</div></div>
+    <div><div class="lbl">Vol×</div><div class="val">2.07×</div></div>
+  </div>
+  
+<div class="lvl">
+  <div class="lbl">A · pullback</div>
+  <div class="val">entry $17.49 · stop $15.64 · mål $22.12</div>
+  <div class="sub">stop 10.57% · target 26.43% · R/R 2.5</div>
+  <div class='sub'>gap-band $17.32–$17.67</div>
+</div>
+  
+<div class="lvl">
+  <div class="lbl">B · breakout</div>
+  <div class="val">entry $18.79 · stop $16.94 · mål $23.41</div>
+  <div class="sub">stop 9.84% · target 24.61% · R/R 2.5</div>
+  
+</div>
+  <footer></footer>
+</article></div>
+  <h3>WILD</h3>
+  <div id="wildSetups">
+<article class="card setup" data-rr="2.5" data-dist="3.4853718875174104" data-ticker="ROIV">
+  <header>
+    <div class="ticker">ROIV</div>
+    <div class="meta"><span class="pill">WILD</span><span class="pill">prefer B</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Close</div><div class="val">$41.48 <span class="pct">+18.75%</span></div></div>
+    <div><div class="lbl">Avstånd</div><div class="val">+3.49% till B entry</div></div>
+    <div><div class="lbl">ATR</div><div class="val">$1.703 (4.11%)</div></div>
+    <div><div class="lbl">Stretch</div><div class="val">+3.10 ATR</div></div>
+    <div><div class="lbl">R/R</div><div class="val">2.50</div></div>
+    <div><div class="lbl">Friktion</div><div class="val">1.50% RT</div></div>
+    <div><div class="lbl">Earnings</div><div class="val">UNCHECKED</div></div>
+    <div><div class="lbl">Vol×</div><div class="val">3.56×</div></div>
+  </div>
+  
+<div class="lvl">
+  <div class="lbl">A · pullback</div>
+  <div class="val">entry $40.22 · stop $37.66 · mål $46.60</div>
+  <div class="sub">stop 6.35% · target 15.88% · R/R 2.5</div>
+  <div class='sub'>gap-band $39.82–$40.62</div>
+</div>
+  
+<div class="lvl">
+  <div class="lbl">B · breakout</div>
+  <div class="val">entry $42.93 · stop $40.37 · mål $49.31</div>
+  <div class="sub">stop 5.95% · target 14.88% · R/R 2.5</div>
+  
+</div>
+  <footer><span class="flag">VOL_SPIKE_STOP_TIGHT</span><span class="flag">stop-gap</span><span class="flag">pullback/break only</span></footer>
+</article></div>
+
+  <h2>5 · Statistik</h2>
+  
+<section class="stats-track">
+  <h3>SAFE</h3>
+  <div class="grid2">
+    <div><div class='lbl'>Levererade</div><div class='val'>13</div></div>
+    <div><div class='lbl'>Aktiverade</div><div class='val'>5</div></div>
+    <div><div class='lbl'>Aktiveringskvot</div><div class='val'>38.46%</div></div>
+    <div><div class='lbl'>Öppna nu</div><div class='val'>5</div></div>
+    <div><div class='lbl'>Träffar</div><div class='val'>0</div></div>
+    <div><div class='lbl'>Stoppade</div><div class='val'>0</div></div>
+    <div><div class='lbl'>Timeouts</div><div class='val'>0</div></div>
+    <div><div class='lbl'>Settle-fails</div><div class='val'>3</div></div>
+    <div><div class='lbl'>Medelvinst</div><div class='val muted'>för få avslut</div></div>
+    <div><div class='lbl'>Medelförlust</div><div class='val muted'>för få avslut</div></div>
+    <div><div class='lbl'>Netto e. friktion</div><div class='val muted'>för få avslut</div></div>
+    <div><div class='lbl'>Hit rate</div><div class='val muted'>för få avslut</div></div>
+  </div>
+  <p class='muted'>Path-avslut: 0 (tröskel 10 för medeltal/hit rate). Settle-fails räknas inte som path-avslut.</p>
+</section>
+  
+<section class="stats-track">
+  <h3>WILD</h3>
+  <div class="grid2">
+    <div><div class='lbl'>Levererade</div><div class='val'>1</div></div>
+    <div><div class='lbl'>Aktiverade</div><div class='val'>0</div></div>
+    <div><div class='lbl'>Aktiveringskvot</div><div class='val'>0.00%</div></div>
+    <div><div class='lbl'>Öppna nu</div><div class='val'>0</div></div>
+    <div><div class='lbl'>Träffar</div><div class='val'>0</div></div>
+    <div><div class='lbl'>Stoppade</div><div class='val'>0</div></div>
+    <div><div class='lbl'>Timeouts</div><div class='val'>0</div></div>
+    <div><div class='lbl'>Settle-fails</div><div class='val'>0</div></div>
+    <div><div class='lbl'>Medelvinst</div><div class='val muted'>för få avslut</div></div>
+    <div><div class='lbl'>Medelförlust</div><div class='val muted'>för få avslut</div></div>
+    <div><div class='lbl'>Netto e. friktion</div><div class='val muted'>för få avslut</div></div>
+    <div><div class='lbl'>Hit rate</div><div class='val muted'>för få avslut</div></div>
+  </div>
+  <p class='muted'>Path-avslut: 0 (tröskel 10 för medeltal/hit rate). Settle-fails räknas inte som path-avslut.</p>
+</section>
+
+  <h2>6 · Avslutade rader</h2>
+  
+<article class="card compact">
+  <header>
+    <div class="ticker">VRNS</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">TIMEOUT_2SESS</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Entrytyp</div><div class="val">—</div></div>
+    <div><div class="lbl">Datum</div><div class="val">2026-09-04</div></div>
+    <div><div class="lbl">Dagar</div><div class="val">2</div></div>
+    <div><div class="lbl">Resultat</div><div class="val">—</div></div>
+  </div>
+  <div class="muted">Neither A nor B in 2 sessions</div>
+</article>
+
+<article class="card compact">
+  <header>
+    <div class="ticker">IOT</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">DEAD_GAP_OVER_B</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Entrytyp</div><div class="val">—</div></div>
+    <div><div class="lbl">Datum</div><div class="val">2026-09-04</div></div>
+    <div><div class="lbl">Dagar</div><div class="val">0</div></div>
+    <div><div class="lbl">Resultat</div><div class="val">—</div></div>
+  </div>
+  <div class="muted">Open 44.90 &gt; B 39.38</div>
+</article>
+
+<article class="card compact">
+  <header>
+    <div class="ticker">SLB</div>
+    <div class="meta"><span class="pill">SAFE</span><span class="pill">EJ_AKTIVERAD_GAP</span></div>
+  </header>
+  <div class="grid2">
+    <div><div class="lbl">Entrytyp</div><div class="val">—</div></div>
+    <div><div class="lbl">Datum</div><div class="val">2026-09-01</div></div>
+    <div><div class="lbl">Dagar</div><div class="val">0</div></div>
+    <div><div class="lbl">Resultat</div><div class="val">—</div></div>
+  </div>
+  <div class="muted">Open 60.00 vs gap band around 58.19 (old single-entry settle)</div>
+</article>
+
+  <h2>7 · Avvisade</h2>
+  <details class="rejects">
+    <summary>Visa avvisade / filterfall (14)</summary>
+    <table>
+      <thead><tr><th>Namn</th><th>Spår</th><th>Filter</th><th>Detalj</th></tr></thead>
+      <tbody><tr><td>NUAI</td><td>SAFE</td><td>junk_HARD</td><td>subdollar_12m</td></tr>
+<tr><td>CHPT</td><td>SAFE</td><td>junk_HARD</td><td>reverse_split_24m</td></tr>
+<tr><td>— (2633)</td><td>SAFE</td><td>cheap:abs_day_lt_thresh</td><td>2633 names</td></tr>
+<tr><td>— (895)</td><td>SAFE</td><td>cheap:close_gt_ceiling</td><td>895 names</td></tr>
+<tr><td>— (145)</td><td>SAFE</td><td>cheap:no_bar_date</td><td>145 names</td></tr>
+<tr><td>— (1029)</td><td>SAFE</td><td>cheap:close_lt_floor</td><td>1029 names</td></tr>
+<tr><td>— (60)</td><td>SAFE</td><td>cheap:no_prior_bar</td><td>60 names</td></tr>
+<tr><td>— (3806)</td><td>WILD</td><td>cheap:abs_day_lt_thresh</td><td>3806 names</td></tr>
+<tr><td>— (895)</td><td>WILD</td><td>cheap:close_gt_ceiling</td><td>895 names</td></tr>
+<tr><td>— (145)</td><td>WILD</td><td>cheap:no_bar_date</td><td>145 names</td></tr>
+<tr><td>— (347)</td><td>WILD</td><td>cheap:close_lt_floor</td><td>347 names</td></tr>
+<tr><td>— (60)</td><td>WILD</td><td>cheap:no_prior_bar</td><td>60 names</td></tr>
+<tr><td>TKO</td><td>SAFE</td><td>price_ceiling_$80</td><td>close $195.32 day +5.01%</td></tr>
+<tr><td>BJDX</td><td>WILD</td><td>mcap</td><td>861296.7660000001</td></tr></tbody>
+    </table>
+  </details>
+
+  <p class="footnote">Ingen rekommendation. Paper book. Inga ordrar. VOL_SPIKE_STOP_TIGHT = |dag%| &gt; 3×ATR% (flagga only).</p>
+</main>
+<script id="dash-data" type="application/json">{"setup_sort_default": "distance", "sort_labels": {"distance": "Sortering: avst\u00e5nd close \u2192 preferred entry (n\u00e4rmast f\u00f6rst) \u2014 beskrivande, inte kvalitetsranking", "rr": "Sortering: R/R (h\u00f6gst f\u00f6rst) \u2014 beskrivande, inte kvalitetsranking"}, "SAFE": {"distance": ["ENOV", "DK", "QBTS"], "rr": ["DK", "ENOV", "QBTS"]}, "WILD": {"distance": ["ROIV"], "rr": ["ROIV"]}}</script>
+<script>
+(function(){
+  var data = JSON.parse(document.getElementById('dash-data').textContent);
+  var labelEl = document.getElementById('sortLabel');
+  var bar = document.getElementById('sortbar');
+  function apply(mode){
+    labelEl.textContent = data.sort_labels[mode] || mode;
+    bar.querySelectorAll('button').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-sort')===mode);
+    });
+    ['safeSetups','wildSetups'].forEach(function(id, i){
+      var track = i===0 ? 'SAFE' : 'WILD';
+      var box = document.getElementById(id);
+      if(!box) return;
+      var order = (data[track] && data[track][mode]) || [];
+      var cards = Array.prototype.slice.call(box.querySelectorAll('article.setup'));
+      var map = {};
+      cards.forEach(function(c){ map[c.getAttribute('data-ticker')] = c; });
+      order.forEach(function(t){ if(map[t]) box.appendChild(map[t]); });
+    });
+  }
+  bar.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-sort]');
+    if(!b) return;
+    apply(b.getAttribute('data-sort'));
+  });
+})();
+</script>
+</body>
+</html>
