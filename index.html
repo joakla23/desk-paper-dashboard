@@ -70,7 +70,7 @@ th { color:var(--muted); font-weight:600; font-size:.75rem; text-transform:upper
 <main>
   <h1>Desk</h1>
   <div class="updated">
-    Senast uppdaterad: 2026-09-12 07:55:20 CEST
+    Senast uppdaterad: 2026-09-12 07:55:54 CEST
     <span class="sub">Scan skriven: 2026-09-12T07:14:00.967732+02:00 · källa scan-2026-09-12-0700</span>
   </div>
   <div class='banner ok'>OK · expected_session 2026-09-11 · bar 2026-09-11</div>
@@ -437,38 +437,6 @@ th { color:var(--muted); font-weight:600; font-size:.75rem; text-transform:upper
   <footer></footer>
 </article>
 
-<article class="card setup" data-rr="2.5" data-dist="1.4250229134132528" data-ticker="ATEC">
-  <header>
-    <div class="ticker">ATEC</div>
-    <div class="meta"><span class="pill">SAFE</span><span class="pill">prefer B</span></div>
-  </header>
-  <div class="grid2">
-    <div><div class="lbl">Close</div><div class="val">$10.58 <span class="pct">+19.68%</span></div></div>
-    <div><div class="lbl">Avstånd</div><div class="val">+1.43% till B entry</div></div>
-    <div><div class="lbl">ATR</div><div class="val">$0.5231 (4.94%)</div></div>
-    <div><div class="lbl">Stretch</div><div class="val">+2.21 ATR</div></div>
-    <div><div class="lbl">R/R</div><div class="val">2.50</div></div>
-    <div><div class="lbl">Friktion</div><div class="val">0.50% RT</div></div>
-    <div><div class="lbl">Earnings</div><div class="val">UNCHECKED</div></div>
-    <div><div class="lbl">Vol×</div><div class="val">3.15×</div></div>
-  </div>
-  
-<div class="lvl">
-  <div class="lbl">A · pullback</div>
-  <div class="val">entry $9.760 · stop $8.975 · mål $11.72</div>
-  <div class="sub">stop 8.04% · target 20.10% · R/R 2.5</div>
-  <div class='sub'>gap-band $9.662–$9.858</div>
-</div>
-  
-<div class="lvl">
-  <div class="lbl">B · breakout</div>
-  <div class="val">entry $10.73 · stop $9.946 · mål $12.69</div>
-  <div class="sub">stop 7.31% · target 18.28% · R/R 2.5</div>
-  
-</div>
-  <footer><span class="flag">VOL_SPIKE_STOP_TIGHT</span><span class="flag">pullback/break only</span></footer>
-</article>
-
 <article class="card setup" data-rr="2.5" data-dist="12.29202434869664" data-ticker="ODD">
   <header>
     <div class="ticker">ODD</div>
@@ -715,7 +683,7 @@ th { color:var(--muted); font-weight:600; font-size:.75rem; text-transform:upper
 
   <p class="footnote">Ingen rekommendation. Paper book. Inga ordrar. VOL_SPIKE_STOP_TIGHT = |dag%| &gt; 3×ATR% (flagga only).</p>
 </main>
-<script id="dash-data" type="application/json">{"setup_sort_default": "distance", "sort_labels": {"distance": "Sortering: avst\u00e5nd close \u2192 preferred entry (n\u00e4rmast f\u00f6rst) \u2014 beskrivande, inte kvalitetsranking", "rr": "Sortering: R/R (h\u00f6gst f\u00f6rst) \u2014 beskrivande, inte kvalitetsranking"}, "SAFE": {"distance": ["ALKT", "ATEC", "ODD"], "rr": ["ALKT", "ATEC", "ODD"]}, "WILD": {"distance": ["ATEC"], "rr": ["ATEC"]}}</script>
+<script id="dash-data" type="application/json">{"setup_sort_default": "distance", "sort_labels": {"distance": "Sortering: avst\u00e5nd close \u2192 preferred entry (n\u00e4rmast f\u00f6rst) \u2014 beskrivande, inte kvalitetsranking", "rr": "Sortering: R/R (h\u00f6gst f\u00f6rst) \u2014 beskrivande, inte kvalitetsranking"}, "SAFE": {"distance": ["ALKT", "ODD"], "rr": ["ALKT", "ODD"]}, "WILD": {"distance": ["ATEC"], "rr": ["ATEC"]}}</script>
 <script>
 (function(){
   var data = JSON.parse(document.getElementById('dash-data').textContent);
